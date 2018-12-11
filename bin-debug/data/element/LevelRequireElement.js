@@ -8,15 +8,14 @@ var __extends = this && this.__extends || function __extends(t, e) {
 for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
-var GameElement = (function (_super) {
-    __extends(GameElement, _super);
-    function GameElement() {
+var LevelRequireElement = (function (_super) {
+    __extends(LevelRequireElement, _super);
+    function LevelRequireElement() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.id = 0;
-        _this.location = 0;
+        _this.num = 0;
         return _this;
     }
-    return GameElement;
+    return LevelRequireElement;
 }(BaseElement));
-__reflect(GameElement.prototype, "GameElement");
-//# sourceMappingURL=GameElement.js.map
+__reflect(LevelRequireElement.prototype, "LevelRequireElement");
+//# sourceMappingURL=LevelRequireElement.js.map

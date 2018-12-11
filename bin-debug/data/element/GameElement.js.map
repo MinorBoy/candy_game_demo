@@ -1,1 +1,1 @@
-{"version":3,"file":"GameElement.js","sourceRoot":"","sources":["../../../src/data/element/GameElement.ts"],"names":[],"mappings":";;;;;;;;;;AAAA;IAA0B,+BAAW;IAArC;;IACA,CAAC;IAAD,kBAAC;AAAD,CAAC,AADD,CAA0B,WAAW,GACpC;AADK,UAAA,WAAW,0BAChB,CAAA"}
+{"version":3,"file":"GameElement.js","sourceRoot":"","sources":["../../../src/data/element/GameElement.ts"],"names":[],"mappings":";;;;;;;;;;AAAA;IAA0B,+BAAW;IAArC;QAAA,qEAGC;QAFO,QAAE,GAAU,CAAC,CAAC;QACd,cAAQ,GAAU,CAAC,CAAC;;IAC5B,CAAC;IAAD,kBAAC;AAAD,CAAC,AAHD,CAA0B,WAAW,GAGpC;AAHK,UAAA,WAAW,0BAGhB,CAAA"}

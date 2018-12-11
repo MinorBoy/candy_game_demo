@@ -20,6 +20,10 @@
     },
     {
       "name": "promise"
+    },
+    {
+      "name": "particle",
+      "path": "H:\\downloads\\egret-game-library-5.2.13\\particle\\libsrc"
     }
   ]
 }

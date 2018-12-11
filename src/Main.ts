@@ -30,7 +30,6 @@
 class Main extends egret.DisplayObjectContainer {
 
 
-
     public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
@@ -87,63 +86,47 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private textfield: egret.TextField;
+    private system: particle.ParticleSystem;
+    private systemLeaf: particle.ParticleSystem;
 
     /**
      * 创建游戏场景
      * Create a game scene
      */
     private createGameScene() {
-        let sky = this.createBitmapByName("bg_jpg");
+        let sky = this.createBitmapByName("bg_png");
         this.addChild(sky);
         let stageW = this.stage.stageWidth;
         let stageH = this.stage.stageHeight;
         sky.width = stageW;
         sky.height = stageH;
 
-        let topMask = new egret.Shape();
-        topMask.graphics.beginFill(0x000000, 0.5);
-        topMask.graphics.drawRect(0, 0, stageW, 172);
-        topMask.graphics.endFill();
-        topMask.y = 33;
-        this.addChild(topMask);
+        let tree = this.createBitmapByName("normalTree_png");
+        this.addChild(tree);
 
-        let icon = this.createBitmapByName("egret_icon_png");
-        this.addChild(icon);
-        icon.x = 26;
-        icon.y = 33;
+        // tree.x = stageW / 2 - tree.width/2;
+        // tree.y = stageH / 2 - tree.height/2;
 
-        let line = new egret.Shape();
-        line.graphics.lineStyle(2, 0xffffff);
-        line.graphics.moveTo(0, 0);
-        line.graphics.lineTo(0, 117);
-        line.graphics.endFill();
-        line.x = 172;
-        line.y = 61;
-        this.addChild(line);
+        let texture = RES.getRes("leaftexiao_png");
+        let config = RES.getRes("leaftexiao_json");
+        this.systemLeaf = new particle.GravityParticleSystem(texture, config);
+        this.addChild(this.systemLeaf);
+        this.systemLeaf.start();
 
+        tree.touchEnabled = true;
+        tree.addEventListener(egret.TouchEvent.TOUCH_TAP, this.rainHandler,this);
 
-        let colorLabel = new egret.TextField();
-        colorLabel.textColor = 0xffffff;
-        colorLabel.width = stageW - 172;
-        colorLabel.textAlign = "center";
-        colorLabel.text = "Hello Egret";
-        colorLabel.size = 24;
-        colorLabel.x = 172;
-        colorLabel.y = 80;
-        this.addChild(colorLabel);
+    }
 
-        let textfield = new egret.TextField();
-        this.addChild(textfield);
-        textfield.alpha = 0;
-        textfield.width = stageW - 172;
-        textfield.textAlign = egret.HorizontalAlign.CENTER;
-        textfield.size = 24;
-        textfield.textColor = 0xffffff;
-        textfield.x = 172;
-        textfield.y = 135;
-        this.textfield = textfield;
-
-
+    private rainParticle:particle.GravityParticleSystem;
+    private rainHandler(e:egret.TouchEvent):void{
+        if(this.rainParticle == null){
+            let texture = RES.getRes("silver_png");
+            let config = RES.getRes("silver_json");
+            this.rainParticle = new particle.GravityParticleSystem(texture, config);
+            this.addChild(this.rainParticle);
+        }
+        this.rainParticle.start(1000);
     }
 
     /**

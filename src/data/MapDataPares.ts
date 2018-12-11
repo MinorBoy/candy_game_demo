@@ -1,0 +1,17 @@
+class MapDataPares {
+	public static createMapData(val:number[]):void
+	{
+		var len:number = val.length;
+		GameData.unmapnum = len;
+		var index:number = 0;
+		for(var i=0; i<len; i++){
+			index = val[i];
+			var row = Math.floor(index/GameData.MaxColumn);
+			var col = index%GameData.MaxRow;
+			GameData.mapData[row][col] = -1;
+		}
+
+		GameData.currentElementNum = GameData.MaxRow * GameData.MaxColumn - len;
+
+	}
+}
